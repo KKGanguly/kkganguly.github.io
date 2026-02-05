@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Kishan Kumar Ganguly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <h2 class="profile-name">Kishan Kumar Ganguly</h2>
+                <p class="profile-title">Ph.D. Student<br>NC State University</p>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="research.html" class="active">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="social-links">
+                    <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Scholar</a>
+                    <a href="https://github.com/kishanganguly" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kishan-kumar-ganguly" target="_blank">LinkedIn</a>
+                </div>
+                <a href="cv.pdf" class="cv-link">Download CV →</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Research</h1>
+                <p class="page-subtitle">My research focuses on making machine learning and optimization methods more practical and effective for software engineering tasks.</p>
+            </div>
+
+            <section class="research-section">
+                <h2>Current Projects</h2>
+                
+                <div class="research-project">
+                    <div class="project-header">
+                        <h3>Data-Centric Fuzzing for JavaScript Engines</h3>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <p class="collaborators">with Tim Menzies</p>
+                    
+                    <p>We developed a machine learning-guided fuzzing framework that learns from crash patterns to discover new vulnerabilities in JavaScript engines. Traditional fuzzing relies on code coverage to guide test generation, but coverage-based approaches often miss semantic bugs that don't manifest in coverage metrics.</p>
+
+                    <p>Our approach combines feature extraction from real crashes with SHAP-based mutation strategies. We built an iterative pipeline that derives 150+ static and runtime features from V8 crash-triggering inputs, then trained an XGBoost model on 160 reproduced crashes and 8,500+ benign tests. The model achieves 85%+ precision with less than 1% false alarms.</p>
+
+                    <p>By integrating this model into the Fuzzilli fuzzer with SHAP-guided, feature-driven mutation, we discovered a previously unknown V8 crash. This demonstrates that data-centric approaches can complement traditional coverage-based fuzzing.</p>
+
+                    <div class="project-links">
+                        <a href="https://papers.ssrn.com/YOUR_ID" class="btn-link" target="_blank">Paper (SSRN) →</a>
+                        <a href="https://github.com/yourusername/project" class="btn-link" target="_blank">Code →</a>
+                    </div>
+                </div>
+
+                <div class="research-project">
+                    <div class="project-header">
+                        <h3>BINGO: Simple Optimizers for Software Engineering</h3>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <p class="collaborators">with Tim Menzies</p>
+                    
+                    <p>We investigated why multi-objective optimization in software engineering often works better than theory predicts. Our key finding is the "BINGO effect": SE optimization problems collapse to just 1-2% of their theoretical search space.</p>
+
+                    <p>This discovery has practical implications. Since SE problems have much smaller effective search spaces than their theoretical bounds suggest, simple optimizers like random search or grid search can reach >90% of optimal performance with just ≤50 evaluations. This is an order of magnitude fewer evaluations than complex evolutionary algorithms typically require.</p>
+
+                    <p>The BINGO effect challenges conventional wisdom about the need for sophisticated optimization in software engineering. For many practical tasks—software configuration, cloud tuning, hyperparameter optimization—simple methods suffice if you understand the problem structure.</p>
+
+                    <div class="project-links">
+                        <a href="https://arxiv.org/abs/2506.04509" class="btn-link" target="_blank">Paper (arXiv) →</a>
+                        <a href="https://github.com/yourusername/bingo" class="btn-link" target="_blank">Code →</a>
+                    </div>
+                </div>
+
+                <div class="research-project">
+                    <div class="project-header">
+                        <h3>MOOT: Multi-Objective Optimization Tasks Repository</h3>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <p class="collaborators">with Tim Menzies, Tao Chen, Yulong Ye, and others</p>
+                    
+                    <p>A major challenge in optimization research is the lack of standardized, real-world benchmarks. Researchers often use toy problems or synthetic data, making it difficult to assess whether methods work on practical software engineering tasks.</p>
+
+                    <p>We created MOOT (Multi-Objective Optimization Tasks), a repository of 120+ real-world optimization tasks spanning software configuration, cloud tuning, and process modeling. Each task includes the problem specification, search space definition, and evaluation metrics.</p>
+
+                    <p>MOOT enables reproducible research and fair comparison of optimization methods. It also revealed the BINGO effect across multiple domains, suggesting that the collapse of search spaces is a general property of SE optimization problems rather than an artifact of specific datasets.</p>
+
+                    <div class="project-links">
+                        <a href="https://arxiv.org/abs/2511.16882" class="btn-link" target="_blank">Paper (arXiv) →</a>
+                        <a href="https://github.com/yourusername/moot" class="btn-link" target="_blank">Repository →</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="research-section">
+                <h2>Past Research</h2>
+
+                <div class="research-project">
+                    <div class="project-header">
+                        <h3>Decentralized Self-Adaptation in Multi-Agent Systems</h3>
+                        <span class="project-year">2017-2018</span>
+                    </div>
+                    <p class="collaborators">M.S. Thesis, University of Dhaka</p>
+                    
+                    <p>Developed a multi-agent Q-learning framework using Interaction-Driven Markov Games (IDMG) for decentralized self-adaptive systems. The framework achieved 33% higher reward than joint Q-learning baselines while improving scalability by reducing coordination overhead by >50% through a dynamic state-identification mechanism.</p>
+
+                    <div class="project-links">
+                        <a href="https://ieeexplore.ieee.org/YOUR_PAPER" class="btn-link" target="_blank">Paper (APSECW 2017) →</a>
+                    </div>
+                </div>
+
+                <div class="research-project">
+                    <div class="project-header">
+                        <h3>Automated Program Repair</h3>
+                        <span class="project-year">2019</span>
+                    </div>
+                    <p class="collaborators">University of Dhaka</p>
+                    
+                    <p>Worked with graduate students on improving automated program repair by analyzing the impact of syntactic and semantic similarities on patch prioritization. We showed that combining both similarity measures significantly improves patch ranking quality.</p>
+
+                    <div class="project-links">
+                        <a href="https://ieeexplore.ieee.org/YOUR_PAPER" class="btn-link" target="_blank">Paper (ICSME 2019) →</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
