@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishan Kumar Ganguly | Ph.D. Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1e1e1e;
+            --accent: #dc2626;
+            --text: #171717;
+            --text-light: #525252;
+            --border: #e5e5e5;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            position: fixed;
+            height: 100vh;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-section {
+            margin-bottom: 3rem;
+        }
+
+        .profile-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .profile-title {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .nav-menu {
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .nav-menu li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .nav-menu a.active {
+            border-left: 3px solid var(--accent);
+        }
+
+        .sidebar-footer {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            transition: color 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .cv-link {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .cv-link:hover {
+            background: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1400px;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #f59e0b);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--bg);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* News Timeline */
+        .news-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-weight: 600;
+            color: var(--text-light);
+            min-width: 120px;
+            font-size: 0.9rem;
+        }
+
+        .news-content p {
+            margin: 0;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+            }
+
+            .main-content {
+                margin-left: 240px;
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 2rem;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <h2 class="profile-name">Kishan Kumar Ganguly</h2>
+                <p class="profile-title">Ph.D. Student<br>NC State University</p>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="social-links">
+                    <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Scholar</a>
+                    <a href="https://github.com/kishanganguly" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kishan-kumar-ganguly" target="_blank">LinkedIn</a>
+                </div>
+                <a href="cv.pdf" class="cv-link">Download CV →</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1>ML for Software Engineering</h1>
+                <p class="page-subtitle">I'm a Ph.D. student advised by <a href="https://menzies.us" target="_blank">Dr. Tim Menzies</a>, working on making machine learning and optimization more practical for software engineering. My research focuses on fuzzing, multi-objective optimization, and data-efficient methods.</p>
+            </div>
+
+            <section>
+                <h2>Current Research</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <span class="project-tag">Active</span>
+                        <h3 class="project-title">Data-Centric Fuzzing for JavaScript Engines</h3>
+                        <p class="project-meta">with Tim Menzies | 2025</p>
+                        <p class="project-description">
+                            We developed a machine learning-guided fuzzing framework that learns from crash patterns to discover vulnerabilities in JavaScript engines. Our approach combines feature extraction from real crashes with SHAP-based mutation strategies, achieving 85%+ precision. This work discovered a previously unknown V8 crash.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://papers.ssrn.com/YOUR_ID" class="project-link" target="_blank">Paper</a>
+                            <a href="https://github.com/yourusername/project" class="project-link" target="_blank">Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-tag">Active</span>
+                        <h3 class="project-title">BINGO: Simple Optimizers for SE</h3>
+                        <p class="project-meta">with Tim Menzies | 2025</p>
+                        <p class="project-description">
+                            We discovered that multi-objective optimization problems in software engineering collapse to just 1-2% of their theoretical search space. This "BINGO effect" means simple optimizers can reach >90% of optimal performance with ≤50 evaluations, drastically reducing computational cost.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://arxiv.org/abs/2506.04509" class="project-link" target="_blank">Paper</a>
+                            <a href="https://github.com/yourusername/bingo" class="project-link" target="_blank">Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-tag">Benchmark</span>
+                        <h3 class="project-title">MOOT: Multi-Objective Optimization Tasks</h3>
+                        <p class="project-meta">with Tim Menzies, Tao Chen, Yulong Ye, and others | 2025</p>
+                        <p class="project-description">
+                            Created a standardized benchmark of 120+ real-world multi-objective optimization tasks spanning software configuration, cloud tuning, and process modeling. MOOT enables reproducible research and fair comparison of optimization methods.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://arxiv.org/abs/2511.16882" class="project-link" target="_blank">Paper</a>
+                            <a href="https://github.com/yourusername/moot" class="project-link" target="_blank">Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Recent News</h2>
+                <ul class="news-list">
+                    <li class="news-item">
+                        <span class="news-date">Jan 2025</span>
+                        <div class="news-content">
+                            <p>Our advisor Dr. Tim Menzies was named an <a href="https://engr.ncsu.edu/news/2025/01/24/tim-menzies-named-acm-fellow/" target="_blank">ACM Fellow</a>!</p>
+                        </div>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">Dec 2024</span>
+                        <div class="news-content">
+                            <p>Submitted three papers on fuzzing, optimization, and benchmarking</p>
+                        </div>
+                    </li>
+                    <li class="news-item">
+                        <span class="news-date">Aug 2024</span>
+                        <div class="news-content">
+                            <p>Started Ph.D. at NC State University</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>By the Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">16</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">191</div>
+                        <div class="stat-label">Citations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.0</div>
+                        <div class="stat-label">GPA</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
