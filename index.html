@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kishan Kumar Ganguly | Ph.D. Student</title>
+    <meta name="description" content="Kishan Kumar Ganguly - Ph.D. Student at NC State University researching ML for Software Engineering, Fuzzing, and Optimization. Seeking summer 2025 research internships.">
+    <meta name="keywords" content="Kishan Kumar Ganguly, ML4SE, Software Engineering, Fuzzing, Optimization, NC State, Research Internship">
+    <meta name="author" content="Kishan Kumar Ganguly">
+    <title>Kishan Kumar Ganguly | Ph.D. Student, NC State</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,160 +18,211 @@
         }
 
         :root {
-            --primary: #0a0a0a;
-            --secondary: #1e1e1e;
-            --accent: #dc2626;
-            --text: #171717;
-            --text-light: #525252;
-            --border: #e5e5e5;
-            --bg: #fafafa;
-            --card-bg: #ffffff;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e5e7eb;
+            --bg: #ffffff;
+            --highlight: #eff6ff;
+            --focus-ring: #3b82f6;
+        }
+
+        /* Reduced motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg);
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.65;
             color: var(--text);
-            line-height: 1.6;
+            background: var(--bg);
         }
 
-        .layout {
-            display: flex;
-            min-height: 100vh;
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text: #000000;
+                --text-light: #333333;
+                --accent: #0000ee;
+                --border: #000000;
+            }
         }
 
-        /* Sidebar Navigation */
-        .sidebar {
-            width: 280px;
-            background: var(--card-bg);
-            border-right: 1px solid var(--border);
+        /* Skip to main content - enhanced */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 2000;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .skip-link:focus {
+            top: 20px;
+            outline: 3px solid var(--focus-ring);
+            outline-offset: 3px;
+        }
+
+        /* Focus visible - modern approach */
+        *:focus-visible {
+            outline: 3px solid var(--focus-ring);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 80px 60px 100px;
+        }
+
+        nav {
             position: fixed;
-            height: 100vh;
-            padding: 3rem 2rem;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 18px 60px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .profile-section {
-            margin-bottom: 3rem;
+        .nav-name {
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 15px;
         }
 
-        .profile-name {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.75rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
+        .nav-links {
+            display: flex;
+            gap: 28px;
         }
 
-        .profile-title {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
-
-        .nav-menu {
-            list-style: none;
-            flex-grow: 1;
-        }
-
-        .nav-menu li {
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-menu a {
-            display: block;
-            padding: 0.75rem 1rem;
+        .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            background: var(--bg);
-            color: var(--text);
-        }
-
-        .nav-menu a.active {
-            border-left: 3px solid var(--accent);
-        }
-
-        .sidebar-footer {
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-light);
+            font-size: 14px;
             transition: color 0.2s;
-            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 4px 8px;
         }
 
-        .social-links a:hover {
+        .nav-links a:hover {
             color: var(--accent);
         }
 
-        .cv-link {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s;
+        header {
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
 
-        .cv-link:hover {
-            background: var(--accent);
+        .header-content {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 36px;
+            align-items: start;
         }
 
-        /* Main Content */
-        .main-content {
-            margin-left: 280px;
-            flex: 1;
-            padding: 3rem 4rem;
-            max-width: 1400px;
-        }
-
-        .page-header {
-            margin-bottom: 3rem;
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border);
         }
 
         h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 3rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            line-height: 1.1;
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.2;
         }
 
-        .page-subtitle {
-            font-size: 1.1rem;
+        .subtitle {
+            font-size: 17px;
             color: var(--text-light);
-            max-width: 700px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 70px;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 22px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 18px;
             font-weight: 600;
-            margin: 3rem 0 1.5rem;
-            color: var(--primary);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
             color: var(--text);
+            font-size: 15px;
         }
 
         a {
@@ -180,328 +234,846 @@
             text-decoration: underline;
         }
 
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .internship-notice {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 18px 20px;
+            border-radius: 6px;
+            margin-top: 24px;
+            margin-bottom: 28px;
         }
 
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), #f59e0b);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        .project-tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--bg);
-            border-radius: 20px;
-            font-size: 0.75rem;
+        .internship-notice p {
+            margin: 0;
+            color: #92400e;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+
+        .theme-intro {
+            background: var(--highlight);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 36px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .theme-intro p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .research-question {
+            background: var(--highlight);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 28px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .research-question h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
             color: var(--accent);
+            font-weight: 600;
         }
 
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
+        .research-question p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .project {
+            margin-bottom: 42px;
+            padding-bottom: 42px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project:last-child {
+            border-bottom: none;
+        }
+
+        .project-header {
+            margin-bottom: 10px;
         }
 
         .project-meta {
-            font-size: 0.85rem;
             color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
+            font-size: 13px;
+            margin-bottom: 14px;
         }
 
         .project-links {
+            margin-top: 14px;
             display: flex;
-            gap: 1rem;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .project-link {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-
-        .project-link:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            text-decoration: none;
-        }
-
-        /* News Timeline */
-        .news-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .news-item {
-            display: flex;
-            gap: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .news-item:last-child {
-            border-bottom: none;
-        }
-
-        .news-date {
-            font-weight: 600;
-            color: var(--text-light);
-            min-width: 120px;
-            font-size: 0.9rem;
-        }
-
-        .news-content p {
-            margin: 0;
-        }
-
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
             color: var(--accent);
-            font-family: 'DM Serif Display', serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px;
         }
 
-        .stat-label {
+        .related-papers {
+            margin-top: 18px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 6px;
+        }
+
+        .related-papers h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .related-papers ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .related-papers li {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .related-papers li::before {
+            content: '📄';
+            position: absolute;
+            left: 0;
+            font-size: 12px;
+        }
+
+        .preprint-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-left: 6px;
+            text-transform: uppercase;
+        }
+
+        .show-more {
+            display: inline-block;
+            padding: 11px 22px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 14px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .show-more:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .hidden-content {
+            display: none;
+            margin-top: 28px;
+        }
+
+        .hidden-content.show {
+            display: block;
+        }
+
+        .publications-category {
+            margin-bottom: 42px;
+        }
+
+        .publications-category h3 {
+            font-size: 19px;
+            margin-bottom: 18px;
+            color: var(--accent);
+        }
+
+        .publication {
+            margin-bottom: 22px;
+            padding: 18px;
+            background: var(--highlight);
+            border-radius: 6px;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            font-size: 15px;
+        }
+
+        .pub-authors {
             color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+            font-size: 14px;
+            margin-bottom: 6px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 240px;
+        .pub-venue {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+            padding: 4px;
+        }
+
+        /* Scrollable timeline with better accessibility */
+        .timeline {
+            margin-top: 28px;
+            max-height: 550px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        /* Custom scrollbar for better UX */
+        .timeline::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .timeline::-webkit-scrollbar-track {
+            background: #f3f4f6;
+            border-radius: 4px;
+        }
+
+        .timeline::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 4px;
+        }
+
+        .timeline::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+
+        .timeline-item {
+            margin-bottom: 28px;
+            padding-left: 22px;
+            border-left: 2px solid var(--border);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .timeline-content p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .awards-grid {
+            display: grid;
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .award-item {
+            padding: 18px;
+            background: var(--highlight);
+            border-radius: 6px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .award-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .award-org {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .award-year {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* Print styles for better printing */
+        @media print {
+            nav { display: none; }
+            .skip-link { display: none; }
+            .show-more { display: none; }
+            .hidden-content { display: block !important; }
+            body { font-size: 12pt; line-height: 1.5; }
+            a { color: #000; text-decoration: underline; }
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                padding: 60px 40px 80px;
             }
 
-            .main-content {
-                margin-left: 240px;
-                padding: 2rem;
+            .nav-content {
+                padding: 16px 40px;
             }
         }
 
         @media (max-width: 768px) {
-            .layout {
+            .container {
+                padding: 50px 24px 70px;
+            }
+
+            .nav-content {
+                padding: 14px 24px;
                 flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
             }
 
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding: 2rem;
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
             }
 
-            .main-content {
-                margin-left: 0;
-                padding: 2rem 1.5rem;
+            .profile-photo {
+                margin: 0 auto;
             }
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 28px;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .news-item {
-                flex-direction: column;
-                gap: 0.5rem;
+            h2 {
+                font-size: 21px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-section">
-                <h2 class="profile-name">Kishan Kumar Ganguly</h2>
-                <p class="profile-title">Ph.D. Student<br>NC State University</p>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <a href="#top" class="nav-name" aria-label="Back to top">Kishan Kumar Ganguly</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
             </div>
+        </div>
+    </nav>
 
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div class="social-links">
-                    <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Scholar</a>
-                    <a href="https://github.com/kishanganguly" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/kishan-kumar-ganguly" target="_blank">LinkedIn</a>
+    <div class="container">
+        <header id="about">
+            <div class="header-content">
+                <img src="profile.jpg" alt="Portrait photo of Kishan Kumar Ganguly wearing glasses and a blue shirt" class="profile-photo">
+                <div>
+                    <h1>Kishan Kumar Ganguly</h1>
+                    <p class="subtitle">Ph.D. Student, Computer Science<br>North Carolina State University</p>
+                    <div class="contact-links">
+                        <a href="mailto:kkganguly.iit.du@gmail.com" aria-label="Send email to Kishan Kumar Ganguly">Email</a>
+                        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer" aria-label="View Google Scholar profile (opens in new tab)">Google Scholar</a>
+                        <a href="https://github.com/kishanganguly" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile (opens in new tab)">GitHub</a>
+                        <a href="https://www.linkedin.com/in/kishan-kumar-ganguly" target="_blank" rel="noopener noreferrer" aria-label="View LinkedIn profile (opens in new tab)">LinkedIn</a>
+                        <a href="cv.pdf" aria-label="Download CV as PDF">CV</a>
+                    </div>
                 </div>
-                <a href="cv.pdf" class="cv-link">Download CV →</a>
             </div>
-        </aside>
+        </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="page-header">
-                <h1>ML for Software Engineering</h1>
-                <p class="page-subtitle">I'm a Ph.D. student advised by <a href="https://menzies.us" target="_blank">Dr. Tim Menzies</a>, working on making machine learning and optimization more practical for software engineering. My research focuses on fuzzing, multi-objective optimization, and data-efficient methods.</p>
-            </div>
-
+        <main id="main">
             <section>
-                <h2>Current Research</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <span class="project-tag">Active</span>
-                        <h3 class="project-title">Data-Centric Fuzzing for JavaScript Engines</h3>
-                        <p class="project-meta">with Tim Menzies | 2025</p>
-                        <p class="project-description">
-                            We developed a machine learning-guided fuzzing framework that learns from crash patterns to discover vulnerabilities in JavaScript engines. Our approach combines feature extraction from real crashes with SHAP-based mutation strategies, achieving 85%+ precision. This work discovered a previously unknown V8 crash.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://papers.ssrn.com/YOUR_ID" class="project-link" target="_blank">Paper</a>
-                            <a href="https://github.com/yourusername/project" class="project-link" target="_blank">Code</a>
-                        </div>
-                    </div>
+                <p>I'm a first-year Ph.D. student in Computer Science at NC State, advised by <a href="https://menzies.us" target="_blank" rel="noopener noreferrer">Dr. Tim Menzies</a>. My research focuses on making machine learning and optimization methods more practical and efficient for software engineering.</p>
 
-                    <div class="project-card">
-                        <span class="project-tag">Active</span>
-                        <h3 class="project-title">BINGO: Simple Optimizers for SE</h3>
-                        <p class="project-meta">with Tim Menzies | 2025</p>
-                        <p class="project-description">
-                            We discovered that multi-objective optimization problems in software engineering collapse to just 1-2% of their theoretical search space. This "BINGO effect" means simple optimizers can reach >90% of optimal performance with ≤50 evaluations, drastically reducing computational cost.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://arxiv.org/abs/2506.04509" class="project-link" target="_blank">Paper</a>
-                            <a href="https://github.com/yourusername/bingo" class="project-link" target="_blank">Code</a>
-                        </div>
-                    </div>
+                <p>I work on problems at the intersection of automated testing, program analysis, and empirical software engineering—always asking how we can do better with less. My current projects include data-centric fuzzing for JavaScript engines and efficient multi-objective optimization for software configuration.</p>
 
-                    <div class="project-card">
-                        <span class="project-tag">Benchmark</span>
-                        <h3 class="project-title">MOOT: Multi-Objective Optimization Tasks</h3>
-                        <p class="project-meta">with Tim Menzies, Tao Chen, Yulong Ye, and others | 2025</p>
-                        <p class="project-description">
-                            Created a standardized benchmark of 120+ real-world multi-objective optimization tasks spanning software configuration, cloud tuning, and process modeling. MOOT enables reproducible research and fair comparison of optimization methods.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://arxiv.org/abs/2511.16882" class="project-link" target="_blank">Paper</a>
-                            <a href="https://github.com/yourusername/moot" class="project-link" target="_blank">Repository</a>
-                        </div>
-                    </div>
+                <p>Before joining NC State in August 2024, I was an Assistant Professor at the University of Dhaka, Bangladesh (2018-2024), where I taught software engineering courses and mentored graduate students in research on program repair, static analysis, and reinforcement learning. I hold M.S. and B.S. degrees in Software Engineering from the University of Dhaka, graduating first in my class for both and receiving Gold Medals from the President of Bangladesh.</p>
+
+                <div class="internship-notice" role="note" aria-label="Internship availability">
+                    <p>🔍 Seeking summer 2025 research internships in ML for Software Engineering, Fuzzing, or Optimization</p>
                 </div>
             </section>
 
-            <section>
+            <section id="news">
                 <h2>Recent News</h2>
-                <ul class="news-list">
-                    <li class="news-item">
-                        <span class="news-date">Jan 2025</span>
-                        <div class="news-content">
-                            <p>Our advisor Dr. Tim Menzies was named an <a href="https://engr.ncsu.edu/news/2025/01/24/tim-menzies-named-acm-fellow/" target="_blank">ACM Fellow</a>!</p>
+                
+                <div class="timeline" role="feed" aria-label="Recent news and updates" tabindex="0">
+                    <article class="timeline-item">
+                        <div class="timeline-date">Jan 2025</div>
+                        <div class="timeline-content">
+                            <h4>MOOT Accepted to MSR 2026</h4>
+                            <p>Our benchmark of 120+ optimization tasks accepted to MSR 2026 Data Showcase Track • <a href="https://arxiv.org/abs/2511.16882" target="_blank" rel="noopener noreferrer">Paper</a></p>
                         </div>
-                    </li>
-                    <li class="news-item">
-                        <span class="news-date">Dec 2024</span>
-                        <div class="news-content">
-                            <p>Submitted three papers on fuzzing, optimization, and benchmarking</p>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">Dec 2024</div>
+                        <div class="timeline-content">
+                            <h4>New Preprint: Data-Centric Fuzzing</h4>
+                            <p>Machine learning-guided fuzzing for JavaScript engines • <a href="https://arxiv.org/abs/2512.18102" target="_blank" rel="noopener noreferrer">Paper</a></p>
                         </div>
-                    </li>
-                    <li class="news-item">
-                        <span class="news-date">Aug 2024</span>
-                        <div class="news-content">
-                            <p>Started Ph.D. at NC State University</p>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">Dec 2024</div>
+                        <div class="timeline-content">
+                            <h4>New Preprint: Data-Light SE Challenge</h4>
+                            <p>Achieving high performance with minimal training data • <a href="https://arxiv.org/abs/2512.13524" target="_blank" rel="noopener noreferrer">Paper</a></p>
                         </div>
-                    </li>
-                </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">Dec 2024</div>
+                        <div class="timeline-content">
+                            <h4>New Preprint: BINGO Effect</h4>
+                            <p>Simple optimizers for SE optimization problems • <a href="https://arxiv.org/abs/2506.04509" target="_blank" rel="noopener noreferrer">Paper</a></p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">Dec 2024</div>
+                        <div class="timeline-content">
+                            <h4>Passed Written Preliminary Exam</h4>
+                            <p>Successfully completed my written qualifying exam at NC State</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-date">Aug 2024</div>
+                        <div class="timeline-content">
+                            <h4>Started Ph.D. at NC State</h4>
+                            <p>Joined NC State University as a Ph.D. student in Computer Science</p>
+                        </div>
+                    </article>
+                </div>
             </section>
 
-            <section>
-                <h2>By the Numbers</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">16</div>
-                        <div class="stat-label">Publications</div>
+            <section id="research">
+                <h2>Research</h2>
+
+                <div class="theme-intro">
+                    <p><strong>Core theme:</strong> Software engineering tasks are often easier than we think. My research shows that with the right insights—learning from real crashes, understanding problem structure, or using simpler methods—we can achieve better results with less effort.</p>
+                </div>
+
+                <div class="research-question">
+                    <h3>Want to find bugs more effectively?</h3>
+                    <p>Coverage alone isn't enough. By learning from actual crash patterns, we can guide fuzzers to discover vulnerabilities faster.</p>
+                </div>
+
+                <article class="project">
+                    <div class="project-header">
+                        <h3>Data-Centric Fuzzing for JavaScript Engines</h3>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">191</div>
-                        <div class="stat-label">Citations</div>
+                    <p class="project-meta">with Tim Menzies | 2025</p>
+                    
+                    <p>We developed a machine learning-guided fuzzing framework that learns from crash patterns to discover vulnerabilities in JavaScript engines. Our approach combines feature extraction from real crashes with SHAP-based mutation strategies, achieving 85%+ precision with minimal false alarms.</p>
+
+                    <p>By integrating this model into the Fuzzilli fuzzer, we discovered a previously unknown V8 crash—demonstrating that data-centric approaches complement traditional coverage-based fuzzing.</p>
+
+                    <div class="related-papers">
+                        <h4>Related Publications:</h4>
+                        <ul>
+                            <li><a href="https://arxiv.org/abs/2512.18102" target="_blank" rel="noopener noreferrer">From Coverage to Causes: Data-Centric Fuzzing for JavaScript Engines</a> <span class="preprint-tag">Preprint</span> (Dec 2024, Under Review)</li>
+                        </ul>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Active Projects</div>
+
+                    <div class="project-links">
+                        <a href="https://arxiv.org/abs/2512.18102" class="project-link" target="_blank" rel="noopener noreferrer">Paper (PDF) →</a>
+                        <a href="https://github.com/kishanganguly/fuzzing-js" class="project-link" target="_blank" rel="noopener noreferrer">Code →</a>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4.0</div>
-                        <div class="stat-label">GPA</div>
+                </article>
+
+                <div class="research-question">
+                    <h3>Want to optimize faster with simpler methods?</h3>
+                    <p>Most SE optimization problems collapse to tiny search spaces. Simple methods can match complex algorithms with 10x fewer evaluations.</p>
+                </div>
+
+                <article class="project">
+                    <div class="project-header">
+                        <h3>Efficient Multi-Objective Optimization for Software Engineering</h3>
+                    </div>
+                    <p class="project-meta">with Tim Menzies and collaborators | 2024-2025</p>
+                    
+                    <p>We discovered that multi-objective optimization problems in software engineering collapse to just 1-2% of their theoretical search space (the "BINGO effect"). This means simple optimizers can reach >90% of optimal performance with ≤50 evaluations, drastically reducing computational cost.</p>
+
+                    <p>We also created MOOT, a standardized benchmark of 120+ real-world optimization tasks to enable reproducible research and fair comparison of methods.</p>
+
+                    <div class="related-papers">
+                        <h4>Related Publications:</h4>
+                        <ul>
+                            <li><a href="https://arxiv.org/abs/2506.04509" target="_blank" rel="noopener noreferrer">BINGO! Simple Optimizers Win Big if Problems Collapse to a Few Buckets</a> <span class="preprint-tag">Preprint</span> (Dec 2024, Under Review)</li>
+                            <li><a href="https://arxiv.org/abs/2512.13524" target="_blank" rel="noopener noreferrer">How Low Can You Go? The Data-Light SE Challenge</a> <span class="preprint-tag">Preprint</span> (Dec 2024)</li>
+                            <li><a href="https://arxiv.org/abs/2511.16882" target="_blank" rel="noopener noreferrer">MOOT: A Repository of Many Multi-Objective Optimization Tasks</a> (MSR 2026)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://arxiv.org/abs/2506.04509" class="project-link" target="_blank" rel="noopener noreferrer">BINGO Paper →</a>
+                        <a href="https://arxiv.org/abs/2511.16882" class="project-link" target="_blank" rel="noopener noreferrer">MOOT Paper →</a>
+                        <a href="https://github.com/timm/moot" class="project-link" target="_blank" rel="noopener noreferrer">Repository →</a>
+                    </div>
+                </article>
+
+                <div class="research-question">
+                    <h3>Want agents to adapt efficiently without central control?</h3>
+                    <p>In today's world of agentic AI and microservices, systems need to self-adapt without central control. Reinforcement learning enables efficient coordination with minimal overhead.</p>
+                </div>
+
+                <article class="project">
+                    <div class="project-header">
+                        <h3>Decentralized Self-Adaptation with Partial Knowledge</h3>
+                    </div>
+                    <p class="project-meta">M.S. Thesis, University of Dhaka | 2017-2018</p>
+                    
+                    <p>Developed a novel decentralized self-adaptation mechanism using Reinforcement Learning and Interaction-Driven Markov Games (IDMG). The key innovation: agents learn optimal decisions by coordinating with only a single peer, rather than requiring global knowledge.</p>
+
+                    <p>The approach restricts coordination only to states where global goals are violated, allowing independent action otherwise. This achieved 33% higher rewards than joint Q-learning while reducing coordination overhead by >50%—critical for modern agentic systems and microservices where scalability matters.</p>
+
+                    <div class="related-papers">
+                        <h4>Related Publications:</h4>
+                        <ul>
+                            <li><a href="http://tiny.cc/3k00101" target="_blank" rel="noopener noreferrer">M.S. Thesis: Decentralized Self-Adaptation in the Presence of Partial Knowledge</a> (2018)</li>
+                            <li>Decentralization of Control Loop for Self-Adaptive Software through Reinforcement Learning (APSECW 2017)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="http://tiny.cc/3k00101" class="project-link" target="_blank" rel="noopener noreferrer">Thesis (PDF) →</a>
+                    </div>
+                </article>
+
+                <button class="show-more" onclick="toggleResearch()" aria-expanded="false" aria-controls="more-research">Show More Research →</button>
+
+                <div id="more-research" class="hidden-content">
+                    <div class="research-question">
+                        <h3>Want better automated program repair?</h3>
+                        <p>Better patch ranking means fewer false positives. Combining syntactic and semantic signals improves repair quality.</p>
+                    </div>
+
+                    <article class="project">
+                        <div class="project-header">
+                            <h3>Similarity-Based Patch Prioritization for Automated Repair</h3>
+                        </div>
+                        <p class="project-meta">University of Dhaka | 2019-2020</p>
+                        
+                        <p>Analyzed how syntactic and semantic similarities affect patch prioritization in automated program repair. Showed that combining both measures significantly improves patch ranking quality across multiple benchmarks.</p>
+
+                        <div class="related-papers">
+                            <h4>Related Publications:</h4>
+                            <ul>
+                                <li>Impact Analysis of Syntactic and Semantic Similarities on Patch Prioritization (ICSME 2019)</li>
+                                <li>Impact of Combining Syntactic and Semantic Similarities (ENASE 2020)</li>
+                                <li>Impact of Similarity on Repairing Small Programs (ICSEW 2020)</li>
+                                <li>Combined Similarity Based Repair Approaches (ENASE 2020)</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <div class="research-question">
+                        <h3>Want to detect code quality issues early?</h3>
+                        <p>Automated tools help catch anti-patterns before they spread. Static analysis makes code reviews more effective.</p>
+                    </div>
+
+                    <article class="project">
+                        <div class="project-header">
+                            <h3>Automated Code Quality Analysis</h3>
+                        </div>
+                        <p class="project-meta">University of Dhaka | 2015-2019</p>
+                        
+                        <p>Developed tools for detecting code smells and bugs. GodExpo detects God structures in Golang; bug localization uses information retrieval and version history.</p>
+
+                        <div class="related-papers">
+                            <h4>Related Publications:</h4>
+                            <ul>
+                                <li>GodExpo: God Structure Detection for Golang (IWoR 2019)</li>
+                                <li>Improved Bug Localization Using IR and Version History (ICCIT 2015)</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-header">
+                            <h3>Machine Learning for SE</h3>
+                        </div>
+                        <p class="project-meta">University of Dhaka | 2018-2022</p>
+                        
+                        <p>Work on defect prediction, traffic signal control using deep RL, and web page repair.</p>
+
+                        <div class="related-papers">
+                            <h4>Related Publications:</h4>
+                            <ul>
+                                <li>Evaluating ML Techniques for Defect Prediction (ICIEV 2018)</li>
+                                <li>Adaptive Traffic Signal Control with Deep RL (IET ITS 2020)</li>
+                                <li>Automated Web Page Repair (ENASE 2021)</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="publications">
+                <h2>Publications</h2>
+                <p style="color: var(--text-light); margin-bottom: 28px; font-size: 14px;">See <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener noreferrer">Google Scholar</a> for the complete list.</p>
+
+                <div class="publications-category">
+                    <h3>Fuzzing & Testing</h3>
+
+                    <article class="publication">
+                        <div class="pub-title">From Coverage to Causes: Data-Centric Fuzzing for JavaScript Engines</div>
+                        <div class="pub-authors"><strong>Kishan Kumar Ganguly</strong>, Tim Menzies</div>
+                        <div class="pub-venue">arXiv preprint, Dec 2024 (Under Review)</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2512.18102" class="pub-link" target="_blank" rel="noopener noreferrer">PDF</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="publications-category">
+                    <h3>Optimization & Search</h3>
+
+                    <article class="publication">
+                        <div class="pub-title">BINGO! Simple Optimizers Win Big if Problems Collapse to a Few Buckets</div>
+                        <div class="pub-authors"><strong>Kishan Kumar Ganguly</strong>, Tim Menzies</div>
+                        <div class="pub-venue">arXiv preprint, Dec 2024 (Under Review)</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2506.04509" class="pub-link" target="_blank" rel="noopener noreferrer">PDF</a>
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="pub-title">How Low Can You Go? The Data-Light SE Challenge</div>
+                        <div class="pub-authors"><strong>Kishan Kumar Ganguly</strong>, Tim Menzies</div>
+                        <div class="pub-venue">arXiv preprint, Dec 2024</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2512.13524" class="pub-link" target="_blank" rel="noopener noreferrer">PDF</a>
+                        </div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="pub-title">MOOT: A Repository of Many Multi-Objective Optimization Tasks</div>
+                        <div class="pub-authors">Tim Menzies, Tao Chen, Yulong Ye, <strong>Kishan Kumar Ganguly</strong>, et al.</div>
+                        <div class="pub-venue">MSR 2026 (Data Showcase Track)</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2511.16882" class="pub-link" target="_blank" rel="noopener noreferrer">PDF</a>
+                            <a href="https://github.com/timm/moot" class="pub-link" target="_blank" rel="noopener noreferrer">Data</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="publications-category">
+                    <h3>Program Repair & Analysis</h3>
+
+                    <article class="publication">
+                        <div class="pub-title">Impact Analysis of Syntactic and Semantic Similarities on Patch Prioritization in Automated Program Repair</div>
+                        <div class="pub-authors">Moumita Asad, <strong>Kishan Kumar Ganguly</strong>, Kazi Sakib</div>
+                        <div class="pub-venue">IEEE ICSME, 2019</div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="pub-title">GodExpo: An Automated God Structure Detection Tool for Golang</div>
+                        <div class="pub-authors">Rafed M Yasir, Moumita Asad, AH Galib, <strong>Kishan Kumar Ganguly</strong>, MS Siddik</div>
+                        <div class="pub-venue">IEEE/ACM IWoR, 2019</div>
+                    </article>
+
+                    <article class="publication">
+                        <div class="pub-title">An Improved Bug Localization Using Structured Information Retrieval and Version History</div>
+                        <div class="pub-authors">Sazzadur Rahman, <strong>Kishan Kumar Ganguly</strong>, Kazi Sakib</div>
+                        <div class="pub-venue">ICCIT, 2015</div>
+                    </article>
+                </div>
+
+                <button class="show-more" onclick="togglePublications()" aria-expanded="false" aria-controls="all-publications">Show All Publications →</button>
+
+                <div id="all-publications" class="hidden-content">
+                    <div class="publications-category">
+                        <h3>Machine Learning & AI</h3>
+
+                        <article class="publication">
+                            <div class="pub-title">Adaptive Traffic Signal Control Using Composite Reward Architecture Based Deep Reinforcement Learning</div>
+                            <div class="pub-authors">ARM Jamil, <strong>Kishan Kumar Ganguly</strong>, Nower Nower</div>
+                            <div class="pub-venue">IET Intelligent Transport Systems, 14(14), 2030-2041, 2020</div>
+                        </article>
+
+                        <article class="publication">
+                            <div class="pub-title">An Experimental Analysis of Reward Functions for Adaptive Traffic Signal Control System</div>
+                            <div class="pub-authors">ARM Jamil, <strong>Kishan Kumar Ganguly</strong>, Nower Nower</div>
+                            <div class="pub-venue">ICDSIS 2020, 513-523, 2022</div>
+                        </article>
+
+                        <article class="publication">
+                            <div class="pub-title">Evaluating the Effectiveness of Conventional Machine Learning Techniques for Defect Prediction</div>
+                            <div class="pub-authors"><strong>Kishan Kumar Ganguly</strong>, BMM Hossain</div>
+                            <div class="pub-venue">ICIEV & icIVPR, 2018</div>
+                        </article>
+
+                        <article class="publication">
+                            <div class="pub-title">Decentralization of Control Loop for Self-Adaptive Software through Reinforcement Learning</div>
+                            <div class="pub-authors"><strong>Kishan Kumar Ganguly</strong>, Kazi Sakib</div>
+                            <div class="pub-venue">APSECW, 2017</div>
+                        </article>
+                    </div>
+
+                    <div class="publications-category">
+                        <h3>Other Publications</h3>
+
+                        <article class="publication">
+                            <div class="pub-title">Automated Repair of Asymmetric Web Pages during Resolution of Mobile Friendly Problems</div>
+                            <div class="pub-authors">MA Azmain, <strong>Kishan Kumar Ganguly</strong></div>
+                            <div class="pub-venue">ENASE, 2021</div>
+                        </article>
+
+                        <article class="publication">
+                            <div class="pub-title">Impact of Combining Syntactic and Semantic Similarities on Patch Prioritization</div>
+                            <div class="pub-authors">Moumita Asad, <strong>Kishan Kumar Ganguly</strong>, Kazi Sakib</div>
+                            <div class="pub-venue">ENASE, 2020</div>
+                        </article>
+
+                        <article class="publication">
+                            <div class="pub-title">Impact of Similarity on Repairing Small Programs: A Case Study on QuixBugs Benchmark</div>
+                            <div class="pub-authors">Moumita Asad, <strong>Kishan Kumar Ganguly</strong>, Kazi Sakib</div>
+                            <div class="pub-venue">IEEE/ACM ICSEW, 2020</div>
+                        </article>
+
+                        <article class="publication">
+                            <div class="pub-title">Combined Similarity Based Automated Program Repair Approaches for Expression Level Bugs</div>
+                            <div class="pub-authors">Moumita Asad, <strong>Kishan Kumar Ganguly</strong>, Kazi Sakib</div>
+                            <div class="pub-venue">ENASE, 2020</div>
+                        </article>
+
+                        <article class="publication">
+                            <div class="pub-title">Impact on the Productivity of Remotely Working IT Professionals of Bangladesh during COVID-19</div>
+                            <div class="pub-authors"><strong>Kishan Kumar Ganguly</strong>, N Tahsin, MM Fuad, T Ahammed, M Asad, SF Huq, et al.</div>
+                            <div class="pub-venue">arXiv preprint, 2020</div>
+                            <div class="pub-links">
+                                <a href="https://arxiv.org/abs/2008.11636" class="pub-link" target="_blank" rel="noopener noreferrer">PDF</a>
+                            </div>
+                        </article>
                     </div>
                 </div>
+            </section>
+
+            <section id="awards">
+                <h2>Honors & Awards</h2>
+                
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-title">IIT Gold Medal (M.S.)</div>
+                        <div class="award-org">Awarded by the President of Bangladesh for Academic Excellence</div>
+                        <div class="award-year">2019</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-title">IIT Gold Medal (B.S.)</div>
+                        <div class="award-org">Awarded by the President of Bangladesh for Academic Excellence</div>
+                        <div class="award-year">2018</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-title">UGC Research Grant</div>
+                        <div class="award-org">University Grant Commission, Bangladesh</div>
+                        <div class="award-year">2021</div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-title">ICT Division Fellowship</div>
+                        <div class="award-org">Ministry of Posts, Telecommunications and IT, Bangladesh</div>
+                        <div class="award-year">2017</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                
+                <p><strong>Email:</strong> <a href="mailto:kkganguly.iit.du@gmail.com">kkganguly.iit.du@gmail.com</a></p>
+                
+                <p><strong>Institution:</strong> North Carolina State University, Raleigh, NC</p>
+
+                <p style="margin-top: 22px;">I'm happy to discuss research collaborations, answer questions about my work, or explore summer 2025 internship opportunities. Feel free to reach out via email.</p>
             </section>
         </main>
+
+        <footer role="contentinfo">
+            <p>Last updated: February 2025</p>
+        </footer>
     </div>
+
+    <script>
+        function toggleResearch() {
+            const content = document.getElementById('more-research');
+            const button = event.target;
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                button.textContent = 'Show More Research →';
+                button.setAttribute('aria-expanded', 'false');
+            } else {
+                content.classList.add('show');
+                button.textContent = '← Show Less';
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function togglePublications() {
+            const content = document.getElementById('all-publications');
+            const button = event.target;
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                button.textContent = 'Show All Publications →';
+                button.setAttribute('aria-expanded', 'false');
+            } else {
+                content.classList.add('show');
+                button.textContent = '← Show Less';
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+    </script>
 </body>
 </html>
